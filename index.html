@@ -6,83 +6,180 @@
     <title>Miss Diva Beauty Pageant</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 4vw;
+        position: relative;
+    }
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    .nav-brand img {
+        height: 40px;
+        width: auto;
+        margin-right: 12px;
+        vertical-align: middle;
+        transition: filter 0.2s;
+    }
+    .nav-brand span {
+        font-size: 1.4rem;
+        color: #FFD700;
+        font-family: 'Playfair Display',serif;
+        letter-spacing: 2px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #FFD700;
+        font-size: 1.08rem;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: background 0.18s, color 0.18s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+        background: rgba(255,255,255,0.07);
+        color: #fffbe6;
+        text-shadow: 0 0 8px #FFD700;
+    }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 1001;
+        margin-left: 18px;
+        margin-right: 0;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .hamburger span {
+        height: 3px;
+        width: 28px;
+        background: #FFD700;
+        margin: 5px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+    @media (max-width: 900px) {
+        .nav-links {
+            gap: 18px;
+        }
+    }
+    @media (max-width: 700px) {
+        nav {
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 12px 2vw;
+        }
+        .nav-brand {
+            flex: 1 1 auto;
+        }
+        .hamburger {
+            display: flex;
+            position: absolute;
+            top: 18px;
+            right: 4vw;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100vw;
+            background: rgba(34,27,15,0.97);
+            position: absolute;
+            left: 0;
+            top: 60px;
+            box-shadow: 0 2px 12px #FFD70022;
+            z-index: 1000;
+            gap: 0;
+        }
+        .nav-links.open {
+            display: flex;
+        }
+        .nav-links a {
+            padding: 16px 0;
+            border-radius: 0;
+            border-bottom: 1px solid #FFD70022;
+            width: 100vw;
+            text-align: center;
+        }
+    }
+    </style>
 </head>
 <body>
+
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Miss Diva <span style="font-size:1.2rem;color:#fff0f6;">&#10024;</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="DS Glam Logo">
+            <span>DS Glam</span>
+        </a>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact</a>
         </div>
-        
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-center text-white d-flex align-items-center justify-content-center" style="background-image: url('images/hero.jpg'); background-size: cover; height: 60vh;">
-        <div class="container">
-            <h1 class="display-4 fw-bold" data-animate>Welcome to Miss Diva Beauty Pageant</h1>
-            <p class="lead" data-animate>Celebrating beauty, talent, and empowerment</p>
-            <a href="events.html" class="btn btn-primary btn-lg mt-3" data-animate>Register for Upcoming Events</a>
+
+    <!-- Hero Section with Logo Left, Welcome Right -->
+    <div class="main-content" style="display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;padding-top:32px;padding-bottom:32px;">
+        <div style="flex:1 1 260px;min-width:220px;max-width:340px;display:flex;justify-content:center;align-items:center;">
+            <img src="logo.png" alt="DS Glam Pageant Logo" style="width:100%;max-width:320px;height:auto;filter:drop-shadow(0 0 20px #FFD70088);">
         </div>
-    </header>
+        <div style="flex:2 1 320px;min-width:220px;max-width:520px;text-align:left;">
+            <h1 style="font-size:2.2rem;line-height:1.2;">Welcome to DS Glam Pageant</h1>
+            <p style="font-size:1.3rem; color:#FFD700cc; margin-bottom: 2rem;">Celebrating beauty, talent, and empowerment</p>
+            <a href="events.html" class="button-gold">Register for Upcoming Events</a>
+        </div>
+    </div>
+
 
     <!-- Highlights Section -->
-    <section class="py-5 bg-light" data-animate>
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <h3>Our Mission</h3>
-                    <p>Empowering women to shine and inspire through beauty and talent.</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Upcoming Events</h3>
-                    <p>Mrs. India 2026, Miss Diva 2026, and more. Register now!</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Portfolio</h3>
-                    <p>Meet our past winners, judges, and see our achievements.</p>
-                </div>
+    <section class="main-content" style="margin-top:0;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-around; gap:32px;">
+            <div style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                <h3>Our Mission</h3>
+                <p>Empowering women to shine and inspire through beauty and talent.</p>
+            </div>
+            <div style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                <h3>Upcoming Events</h3>
+                <p>Mrs. India 2026, Miss Diva 2026, and more. Register now!</p>
+            </div>
+            <div style="flex:1 1 220px; min-width:220px; max-width:300px;">
+                <h3>Portfolio</h3>
+                <p>Meet our past winners, judges, and see our achievements.</p>
             </div>
         </div>
     </section>
 
+
     <!-- Footer -->
-    <footer class="py-4">
-        <div class="container text-center">
-            <div class="footer-graphic mb-2">
-                <img src="images/footer-floral.png" alt="Footer Graphic" style="height:32px;opacity:0.7;">
-            </div>
-            <p>&copy; 2026 Miss Diva Beauty Pageant. All rights reserved. <span style="color:#e83e8c">&#10024;</span></p>
+    <footer>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+            <img src="logo.png" alt="DS Glam Logo" style="height:38px;width:auto;filter:drop-shadow(0 0 8px #FFD70088);">
+            <p style="margin:0;">&copy; 2026 DS Glam Pageant. All rights reserved. <span style="color:#FFD700">&#10024;</span></p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-    // Scroll animation for elements with data-animate
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('[data-animate]');
-        elements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 60) {
-                el.classList.add('animated');
-            }
-        });
-    }
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-    </script>
+    <!-- No extra scripts needed for gold/black theme -->
 </body>
 </html>

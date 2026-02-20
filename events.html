@@ -6,38 +6,147 @@
     <title>Events | Miss Diva</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 4vw;
+        position: relative;
+    }
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+    .nav-brand img {
+        height: 40px;
+        width: auto;
+        margin-right: 12px;
+        vertical-align: middle;
+        transition: filter 0.2s;
+    }
+    .nav-brand span {
+        font-size: 1.4rem;
+        color: #FFD700;
+        font-family: 'Playfair Display',serif;
+        letter-spacing: 2px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #FFD700;
+        font-size: 1.08rem;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: background 0.18s, color 0.18s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+        background: rgba(255,255,255,0.07);
+        color: #fffbe6;
+        text-shadow: 0 0 8px #FFD700;
+    }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 1001;
+        margin-left: 18px;
+        margin-right: 0;
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .hamburger span {
+        height: 3px;
+        width: 28px;
+        background: #FFD700;
+        margin: 5px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+    @media (max-width: 900px) {
+        .nav-links {
+            gap: 18px;
+        }
+    }
+    @media (max-width: 700px) {
+        nav {
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 12px 2vw;
+        }
+        .nav-brand {
+            flex: 1 1 auto;
+        }
+        .hamburger {
+            display: flex;
+            position: absolute;
+            top: 18px;
+            right: 4vw;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            width: 100vw;
+            background: rgba(34,27,15,0.97);
+            position: absolute;
+            left: 0;
+            top: 60px;
+            box-shadow: 0 2px 12px #FFD70022;
+            z-index: 1000;
+            gap: 0;
+        }
+        .nav-links.open {
+            display: flex;
+        }
+        .nav-links a {
+            padding: 16px 0;
+            border-radius: 0;
+            border-bottom: 1px solid #FFD70022;
+            width: 100vw;
+            text-align: center;
+        }
+    }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Miss Diva</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="events.html">Events</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+    <nav>
+        <a href="index.html" class="nav-brand">
+            <img src="logo.png" alt="DS Glam Logo">
+            <span>DS Glam</span>
+        </a>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="events.html" style="color:#fffbe6;text-shadow:0 0 8px #FFD700;">Events</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
-    <section class="py-5">
-        <div class="container">
-            <h2 class="mb-4 text-center">Upcoming Events</h2>
-            <div class="row mb-5">
-                <div class="col-md-6">
-                    <div class="event-card p-4 bg-white rounded shadow">
-                        <h4>Mrs. India 2026</h4>
-                        <p>Date: June 15, 2026</p>
-                        <p>Location: Mumbai</p>
-                        <a href="#registration" class="btn btn-primary">Register Now</a>
+    <section class="main-content" style="margin-top:32px;">
+        <h2 class="mb-4 text-center">Upcoming Events</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center;">
+            <div style="flex:1 1 260px;min-width:220px;max-width:420px;">
+                <div class="event-card p-4 rounded shadow highlight-pink" style="background:linear-gradient(120deg,#fff6fb 0%,#ffe6f0 60%,#FFD70022 100%);border:1.5px solid #FFD700;box-shadow:0 4px 24px #FFD70022,0 2px 24px #e83e8c22;border-radius:18px;">
+                    <h4>Mrs. India 2026</h4>
+                    <p>Date: June 15, 2026</p>
+                    <p>Location: Mumbai</p>
+                    <a href="#registration" class="button-gold">Register Now</a>
                     </div>
                 </div>
                 <div class="col-md-6">
