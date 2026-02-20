@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miss Diva Beauty Pageant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Miss Diva <span style="font-size:1.2rem;color:#fff0f6;">&#10024;</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-white d-flex align-items-center justify-content-center" style="background-image: url('images/hero.jpg'); background-size: cover; height: 60vh;">
+        <div class="container">
+            <h1 class="display-4 fw-bold" data-animate>Welcome to Miss Diva Beauty Pageant</h1>
+            <p class="lead" data-animate>Celebrating beauty, talent, and empowerment</p>
+            <a href="events.html" class="btn btn-primary btn-lg mt-3" data-animate>Register for Upcoming Events</a>
+        </div>
+    </header>
+
+    <!-- Highlights Section -->
+    <section class="py-5 bg-light" data-animate>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h3>Our Mission</h3>
+                    <p>Empowering women to shine and inspire through beauty and talent.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Upcoming Events</h3>
+                    <p>Mrs. India 2026, Miss Diva 2026, and more. Register now!</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Portfolio</h3>
+                    <p>Meet our past winners, judges, and see our achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <div class="footer-graphic mb-2">
+                <img src="images/footer-floral.png" alt="Footer Graphic" style="height:32px;opacity:0.7;">
+            </div>
+            <p>&copy; 2026 Miss Diva Beauty Pageant. All rights reserved. <span style="color:#e83e8c">&#10024;</span></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+    // Scroll animation for elements with data-animate
+    function animateOnScroll() {
+        const elements = document.querySelectorAll('[data-animate]');
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                el.classList.add('animated');
+            }
+        });
+    }
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>

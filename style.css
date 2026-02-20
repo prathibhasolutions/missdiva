@@ -1,0 +1,146 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(232,62,140,0.5), rgba(33,37,41,0.5)), url('images/hero.jpg') center/cover no-repeat;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: fadeInHero 1.5s ease;
+}
+
+@keyframes fadeInHero {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background: url('images/overlay-floral.png') center/cover no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 24px #e83e8c;
+    animation: slideDown 1s ease;
+}
+
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.btn-primary {
+    background-color: #e83e8c;
+    border: none;
+    box-shadow: 0 2px 12px #e83e8c44;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-primary:hover {
+    background-color: #d63384;
+    transform: scale(1.05);
+}
+
+footer {
+    background: linear-gradient(90deg, #212529 0%, #e83e8c 100%);
+    color: #fff0f6;
+    position: relative;
+    overflow: hidden;
+}
+footer::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background: url('images/footer-floral.png') center/cover no-repeat;
+    opacity: 0.12;
+    pointer-events: none;
+}
+footer p {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff0f6 !important;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #e83e8c, 0 2px 8px #212529;
+}
+.navbar {
+    background: linear-gradient(90deg, #e83e8c 0%, #212529 100%);
+    box-shadow: 0 2px 12px #e83e8c33;
+}
+.nav-link.active, .nav-link:hover {
+    color: #fff0f6 !important;
+    font-weight: bold;
+    text-shadow: 0 2px 8px #e83e8c;
+}
+
+/* Section Animations */
+section {
+    animation: fadeInSection 1s ease;
+}
+@keyframes fadeInSection {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards and Gallery */
+.card, .event-card {
+    border-radius: 1.2rem;
+    box-shadow: 0 4px 24px #e83e8c22;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeInCard 1s ease;
+}
+.card:hover, .event-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 32px #e83e8c44;
+}
+@keyframes fadeInCard {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.img-fluid {
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px #e83e8c22;
+    animation: fadeInImg 1s ease;
+}
+@keyframes fadeInImg {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Scroll Animation */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s, transform 0.7s;
+}
+[data-animate].animated {
+    opacity: 1;
+    transform: translateY(0);
+}
